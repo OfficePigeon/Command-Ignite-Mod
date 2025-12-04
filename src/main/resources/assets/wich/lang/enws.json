@@ -1,4 +1,6 @@
 {
+  "commands.extinguish.success.single": "%s hath been extinguish'd",
+  "commands.extinguish.success.multiple": "%s entities hath been extinguish'd",
   "commands.ignite.success.single": "%s hath been set ablaze",
   "commands.ignite.success.multiple": "%s entities hath been set ablaze"
 }

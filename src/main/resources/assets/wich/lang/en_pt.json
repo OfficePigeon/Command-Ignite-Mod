@@ -1,4 +1,6 @@
 {
+  "commands.extinguish.success.single": "%s wen' out",
+  "commands.extinguish.success.multiple": "%s entities wen' out",
   "commands.ignite.success.single": "%s be burnin'",
   "commands.ignite.success.multiple": "%s entities be burnin'"
 }

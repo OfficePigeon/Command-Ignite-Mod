@@ -7,7 +7,8 @@
 	"authors": [ "dovewich" ],
 	"contact": {
 		"homepage": "https://www.wich.fun/",
-		"sources": "https://github.com/OfficePigeon/Command-Ignite-Mod"
+		"sources": "https://github.com/OfficePigeon/Command-Ignite-Mod",
+		"issues": "https://github.com/OfficePigeon/Command-Ignite-Mod/issues"
 	},
 	"icon": "assets/wich/icon.png",
 	"environment": "*",
@@ -16,7 +17,7 @@
 	},
 	"depends": {
 		"fabricloader": ">=0.17.3",
-		"minecraft": ">=1.18 <1.19",
+		"minecraft": "~1.18",
 		"java": ">=17",
 		"fabric": "*"
 	}

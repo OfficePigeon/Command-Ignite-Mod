@@ -1,0 +1,4 @@
+{
+  "commands.ignite.success.single": "Ignited %s",
+  "commands.ignite.success.multiple": "Ignited %s entities"
+}

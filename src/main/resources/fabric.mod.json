@@ -1,0 +1,27 @@
+{
+	"schemaVersion": 1,
+	"id": "wich_",
+	"version": "${version}",
+	"name": "Command: Ignite",
+	"description": "Use the /ignite command to set entities on fire.",
+	"authors": [ "dovewich" ],
+	"contact": {
+		"homepage": "https://www.wich.fun/",
+		"sources": "https://github.com/OfficePigeon/Command-Ignite-Mod"
+	},
+	"license": "",
+	"icon": "assets/wich/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+		  "fun.wich.IgniteCommand"
+		]
+	},
+	"mixins": [ ],
+	"depends": {
+		"fabricloader": ">=0.17.3",
+		"minecraft": ">=1.14 <1.15",
+		"java": ">=21",
+		"fabric-api": "*"
+	}
+}

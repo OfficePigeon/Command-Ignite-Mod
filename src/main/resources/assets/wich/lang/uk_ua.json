@@ -1,0 +1,4 @@
+{
+  "commands.ignite.success.single": "%s спалахнув",
+  "commands.ignite.success.multiple": "%s сутностей було спалено"
+}

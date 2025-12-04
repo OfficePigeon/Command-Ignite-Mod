@@ -1,0 +1,4 @@
+{
+  "commands.ignite.success.single": "%s se encendió",
+  "commands.ignite.success.multiple": "%s entidades encendidas"
+}

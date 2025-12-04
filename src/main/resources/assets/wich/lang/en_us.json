@@ -1,4 +1,4 @@
 {
-  "commands.ignite.success.single": "Ignited %s",
-  "commands.ignite.success.multiple": "Ignited %s entities"
+  "commands.ignite.success.single": "%s was ignited",
+  "commands.ignite.success.multiple": "%s entities were ignited"
 }

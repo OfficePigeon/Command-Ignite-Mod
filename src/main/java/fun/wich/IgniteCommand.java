@@ -28,8 +28,8 @@ public class IgniteCommand implements ModInitializer {
 	}
 	private static int execute(ServerCommandSource source, Collection<? extends Entity> targets, int duration) {
 		for (Entity entity : targets) entity.setOnFireFor(duration);
-		if (targets.size() == 1) source.sendFeedback(Text.translatable("commands.ignite.success.single", targets.iterator().next().getDisplayName()), true);
-		else source.sendFeedback(Text.translatable("commands.ignite.success.multiple", targets.size()), true);
+		if (targets.size() == 1) source.sendFeedback(() -> Text.translatable("commands.ignite.success.single", targets.iterator().next().getDisplayName()), true);
+		else source.sendFeedback(() -> Text.translatable("commands.ignite.success.multiple", targets.size()), true);
 		return targets.size();
 	}
 }

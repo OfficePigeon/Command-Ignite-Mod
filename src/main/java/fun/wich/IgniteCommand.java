@@ -31,15 +31,27 @@ public class IgniteCommand implements ModInitializer {
 						.executes((context) -> extinguish(context.getSource(), EntityArgumentType.getEntities(context, "targets")))));
 	}
 	private static int ignite(ServerCommandSource source, Collection<? extends Entity> targets, int duration) {
-		for (Entity entity : targets) entity.setOnFireFor(duration);
-		if (targets.size() == 1) source.sendFeedback(new TranslatableText("commands.ignite.success.single", targets.iterator().next().getDisplayName()), true);
-		else source.sendFeedback(new TranslatableText("commands.ignite.success.multiple", targets.size()), true);
+		int count = 0;
+		for (Entity entity : targets) {
+			if (!entity.isFireImmune()) {
+				entity.setOnFireFor(duration);
+				count++;
+			}
+		}
+		if (targets.size() == 1 && count > 0) source.sendFeedback(new TranslatableText("commands.ignite.success.single", targets.iterator().next().getDisplayName()), true);
+		else source.sendFeedback(new TranslatableText("commands.ignite.success.multiple", count), true);
 		return targets.size();
 	}
 	private static int extinguish(ServerCommandSource source, Collection<? extends Entity> targets) {
-		for (Entity entity : targets) entity.extinguish();
-		if (targets.size() == 1) source.sendFeedback(new TranslatableText("commands.extinguish.success.single", targets.iterator().next().getDisplayName()), true);
-		else source.sendFeedback(new TranslatableText("commands.extinguish.success.multiple", targets.size()), true);
+		int count = 0;
+		for (Entity entity : targets) {
+			if (entity.isOnFire()) {
+				entity.extinguish();
+				count++;
+			}
+		}
+		if (targets.size() == 1 && count > 0) source.sendFeedback(new TranslatableText("commands.extinguish.success.single", targets.iterator().next().getDisplayName()), true);
+		else source.sendFeedback(new TranslatableText("commands.extinguish.success.multiple", count), true);
 		return targets.size();
 	}
 }

@@ -1,4 +1,6 @@
 {
+  "commands.extinguish.success.single": "%s iz hot no moer",
+  "commands.extinguish.success.multiple": "%s tings r hot no moer",
   "commands.ignite.success.single": "%s waz set on fier!!!",
   "commands.ignite.success.multiple": "%s tings set on fier!!!"
 }

@@ -1,4 +1,6 @@
 {
+  "commands.extinguish.success.single": "pǝɥsınƃuıʇxǝ sɐʍ %s",
+  "commands.extinguish.success.multiple": "pǝɥsınƃuıʇxǝ ǝɹǝʍ sǝıʇıʇuǝ %s",
   "commands.ignite.success.single": "pǝıʇıuƃı sɐʍ %s",
   "commands.ignite.success.multiple": "pǝıʇıuƃı ǝɹǝʍ sǝıʇıʇuǝ %s"
 }

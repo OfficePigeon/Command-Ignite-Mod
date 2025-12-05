@@ -20,16 +20,27 @@ public class IgniteCommand implements ModInitializer {
 	public static void register(CommandDispatcher<ServerCommandSource> dispatcher, CommandRegistryAccess access, CommandManager.RegistrationEnvironment environment) {
 		dispatcher.register(CommandManager.literal("ignite")
 				.requires(source -> source.hasPermissionLevel(2))
-				.executes((context) -> execute(context.getSource(), ImmutableList.of(context.getSource().getEntityOrThrow()), 10))
+				.executes((context) -> ignite(context.getSource(), ImmutableList.of(context.getSource().getEntityOrThrow()), 10))
 				.then(CommandManager.argument("targets", EntityArgumentType.entities())
-						.executes((context) -> execute(context.getSource(), EntityArgumentType.getEntities(context, "targets"), 10))
+						.executes((context) -> ignite(context.getSource(), EntityArgumentType.getEntities(context, "targets"), 10))
 						.then((CommandManager.argument("seconds", IntegerArgumentType.integer(1, 1000000))
-								.executes(context -> execute(context.getSource(), EntityArgumentType.getEntities(context, "targets"), IntegerArgumentType.getInteger(context, "seconds")))))));
+								.executes(context -> ignite(context.getSource(), EntityArgumentType.getEntities(context, "targets"), IntegerArgumentType.getInteger(context, "seconds")))))));
+		dispatcher.register(CommandManager.literal("extinguish")
+				.requires((source) -> source.hasPermissionLevel(2))
+				.executes((context) -> extinguish(context.getSource(), ImmutableList.of(context.getSource().getEntityOrThrow())))
+				.then(CommandManager.argument("targets", EntityArgumentType.entities())
+						.executes((context) -> extinguish(context.getSource(), EntityArgumentType.getEntities(context, "targets")))));
 	}
-	private static int execute(ServerCommandSource source, Collection<? extends Entity> targets, int duration) {
+	private static int ignite(ServerCommandSource source, Collection<? extends Entity> targets, int duration) {
 		for (Entity entity : targets) entity.setOnFireFor(duration);
 		if (targets.size() == 1) source.sendFeedback(() -> Text.translatable("commands.ignite.success.single", targets.iterator().next().getDisplayName()), true);
 		else source.sendFeedback(() -> Text.translatable("commands.ignite.success.multiple", targets.size()), true);
+		return targets.size();
+	}
+	private static int extinguish(ServerCommandSource source, Collection<? extends Entity> targets) {
+		for (Entity entity : targets) entity.extinguish();
+		if (targets.size() == 1) source.sendFeedback(() -> Text.translatable("commands.extinguish.success.single", targets.iterator().next().getDisplayName()), true);
+		else source.sendFeedback(() -> Text.translatable("commands.extinguish.success.multiple", targets.size()), true);
 		return targets.size();
 	}
 }

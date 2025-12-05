@@ -1,4 +1,6 @@
 {
+  "commands.extinguish.success.single": "%s було згашено",
+  "commands.extinguish.success.multiple": "%s об'єктів було ліквідовано",
   "commands.ignite.success.single": "%s спалахнув",
   "commands.ignite.success.multiple": "%s сутностей було спалено"
 }

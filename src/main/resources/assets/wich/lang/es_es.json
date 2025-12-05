@@ -1,4 +1,6 @@
 {
+  "commands.extinguish.success.single": "%s se extinguió",
+  "commands.extinguish.success.multiple": "%s entidades extinguidas",
   "commands.ignite.success.single": "%s se encendió",
   "commands.ignite.success.multiple": "%s entidades encendidas"
 }

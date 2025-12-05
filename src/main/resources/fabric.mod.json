@@ -3,7 +3,7 @@
 	"id": "wich_command-ignite",
 	"version": "${version}",
 	"name": "Command: Ignite",
-	"description": "Use the /ignite command to set entities on fire.",
+	"description": "Use the /ignite command to set entities on fire and the /extinguish command to put them out.",
 	"authors": [ "dovewich" ],
 	"contact": {
 		"homepage": "https://www.wich.fun/",

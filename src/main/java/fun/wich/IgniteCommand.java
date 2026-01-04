@@ -19,14 +19,14 @@ public class IgniteCommand implements ModInitializer {
 	@Override public void onInitialize() { CommandRegistrationCallback.EVENT.register(IgniteCommand::register); }
 	public static void register(CommandDispatcher<ServerCommandSource> dispatcher, CommandRegistryAccess access, CommandManager.RegistrationEnvironment environment) {
 		dispatcher.register(CommandManager.literal("ignite")
-				.requires(source -> source.hasPermissionLevel(2))
+				.requires(CommandManager.requirePermissionLevel(CommandManager.GAMEMASTERS_CHECK))
 				.executes((context) -> ignite(context.getSource(), ImmutableList.of(context.getSource().getEntityOrThrow()), 10))
 				.then(CommandManager.argument("targets", EntityArgumentType.entities())
 						.executes((context) -> ignite(context.getSource(), EntityArgumentType.getEntities(context, "targets"), 10))
 						.then((CommandManager.argument("seconds", IntegerArgumentType.integer(1, 1000000))
 								.executes(context -> ignite(context.getSource(), EntityArgumentType.getEntities(context, "targets"), IntegerArgumentType.getInteger(context, "seconds")))))));
 		dispatcher.register(CommandManager.literal("extinguish")
-				.requires((source) -> source.hasPermissionLevel(2))
+				.requires(CommandManager.requirePermissionLevel(CommandManager.GAMEMASTERS_CHECK))
 				.executes((context) -> extinguish(context.getSource(), ImmutableList.of(context.getSource().getEntityOrThrow())))
 				.then(CommandManager.argument("targets", EntityArgumentType.entities())
 						.executes((context) -> extinguish(context.getSource(), EntityArgumentType.getEntities(context, "targets")))));
